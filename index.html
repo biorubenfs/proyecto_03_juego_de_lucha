@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fight!!</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <div class="choose-character">
+
+
+
+        <div class="selection" id="selection">
+            <h3>Escoge dos cuadrados</h3>
+            <!-- Dos cuadrados que representan los jugadores -->
+            <div class="character blue" onclick="addPlayerBlue()" id="blue"></div>
+            <div class="character green" onclick="addPlayerGreen()" id="green"></div>
+            <div class="character red" onclick="addPlayerRed()" id="red"></div>
+            <div class="character yellow" onclick="addPlayerYellow()" id="yellow"></div>
+        </div>
+
+        <div class="choosen-characters">
+            <h3>Personajes elegidos</h3>
+            <div class="display-characters" id="displayCharacters"></div>
+
+            <!-- Aquí intento agregar los personajes seleccionados -->
+
+        </div>
+
+    </div>
+
+    <div class="fighting">
+
+        <div class="controles">
+            <button class="boton-player1" onclick="atacarPlayer1()">Jug1-atacar</button>
+            <button class="boton-player2" onclick="atacarPlayer2()">Jug2-atacar</button>
+        </div>
+
+
+
+    </div>
+
+
+    <script src="./js/main.js"></script>
+    <!-- <script src="./js/main_copy.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+/* Select Character */
+.selection {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+}
+
+/* Los personajes en css, simples cuadrados */
+.character {
+  height: 4em;
+  width: 4em;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+/* Hovers de seleccion */
+.blue:hover {
+  border: 0.2em solid black;
+}
+
+.green:hover {
+  border: 0.2em solid black;
+}
+
+.yellow:hover {
+  border: 0.2em solid black;
+}
+
+.red:hover {
+  border: 0.2em solid black;
+}
+
+.display-characters {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+}
+
+.fighting {
+  display: flex;
+  flex-direction: row;
+  height: 20em;
+  width: 20em;
+}
+
+.boton-player1 {
+  height: 4em;
+  width: 4em;
+  background-color: chocolate;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.boton-player2 {
+  height: 4em;
+  width: 4em;
+  background-color: chocolate;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.controles {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4em;
+}
