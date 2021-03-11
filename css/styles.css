@@ -78,3 +78,28 @@
   flex-direction: row;
   column-gap: 4em;
 }
+
+/* La vida de los jugadores */
+.ps {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+}
+
+.ps-player {
+  height: 1em;
+  width: 5em;
+  display: flex;
+}
+
+#ps-1 {
+  height: 100%;
+  width: 100%;
+  background-color: grey;
+}
+
+#ps-2 {
+  height: 100%;
+  width: 100%;
+  background-color: grey;
+}

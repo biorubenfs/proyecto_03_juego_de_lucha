@@ -111,11 +111,12 @@ let checkWinner = (player1, player2) => {
     }
 };
 
-//checkWinner(players[0], players[1]);
-
 let atacarPlayer1 = () => {
     players[1].health = players[1].health - players[0].attack;
     console.log(`${players[1].color} ps: ${players[1].health}`);
+    let ps = `${players[1].health}%`;
+    document.getElementById("ps-2").style.width = ps;
+
     checkWinner(players[0], players[1]);
 
 }
@@ -123,21 +124,10 @@ let atacarPlayer1 = () => {
 let atacarPlayer2 = () => {
     players[0].health = players[0].health - players[1].attack;
     console.log(`${players[0].color} ps: ${players[0].health}`);
-    checkWinner(players[0], players[1]);
-}
+    let ps = `${players[0].health}%`;
 
-function change() {
-    let div1 = document.getElementById("divUno");
+    document.getElementById("ps-1").style.width = ps;
 
-    if (div1.hidden == true) {
-        div1.hidden = false;
-    } else {
-        div1.hidden = true;
-    }
-}
-
-let luchar = () => {
-    fight(players[0], players[1]);
     checkWinner(players[0], players[1]);
 }
 
