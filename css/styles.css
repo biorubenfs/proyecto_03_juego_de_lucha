@@ -103,3 +103,161 @@
   width: 100%;
   background-color: grey;
 }
+/* ################################################## */
+
+/* ESTILOS NUEVOS */
+
+body {
+  background-color: grey;
+  /* background-image: url(../img/fruits_bg.jpg); */
+  /* background-position: center; */
+  /* background-position: cover; */
+  /* background-repeat: no-repeat; */
+}
+
+.titulo {
+  color: black;
+  font-size: 4em;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Seleccion fruta */
+.pantalla {
+  height: 50em;
+  width: 50em;
+  display: flex;
+  margin: auto; /* Centra el contenido */
+  justify-content: center;
+  align-content: center;
+}
+
+.recuadro-transparente-inicio {
+  height: 70%;
+  width: 70%;
+  background-color: seashell;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1em;
+}
+
+/* Las frutas */
+
+.texto-subtitulo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  text-align: center;
+  margin: 1em 0em;
+}
+
+.opciones-frutas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.opciones {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.fruta {
+  padding: 1em;
+  height: 6em;
+  width: 6em;
+}
+
+.hover-effect:hover {
+  border: 0.2em solid black;
+  padding: 1.2em;
+}
+
+/* .fruta:hover {
+  border: 0.2em solid black;
+  padding: 1.2em;
+} */
+
+/* Cargando las imagenes de las frutas */
+.manzana {
+  background-image: url(../img/apple_icon.svg);
+}
+
+.pera {
+  background-image: url(../img/pear_icon.svg);
+}
+
+.fresa {
+  background-image: url(../img/strawberry_icon.svg);
+}
+
+.platano {
+  background-image: url(../img/banana_icon.svg);
+}
+
+.frutas-seleccionadas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.boton-inicio {
+  /* height: auto; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 1em;
+}
+
+/* Pantalla de lucha*/
+
+.recuadro-transparente-lucha {
+  height: 70%;
+  width: 70%;
+  display: none;
+  flex-direction: column;
+  background-color: seashell;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1em;
+  /* width: 90%;; */
+}
+
+/* Barras de salud */
+
+.barras-salud {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+
+.barra-salud-1 {
+  height: 1em;
+  width: 10em;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+.barra-salud-2 {
+  height: 1em;
+  width: 10em;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+.frutas-luchando {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.botones-ataque {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+  margin-top: 2em;
+}

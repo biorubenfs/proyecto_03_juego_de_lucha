@@ -12,50 +12,69 @@
 
 <body>
 
-    <div class="choose-character">
+    <h1 class="titulo">FruitFigther</h1>
 
-        <div class="selection" id="selection">
-            <h3>Escoge dos cuadrados</h3>
-            <!-- Dos cuadrados que representan los jugadores -->
-            <div class="character blue" onclick="addPlayerBlue()" id="blue"></div>
-            <div class="character green" onclick="addPlayerGreen()" id="green"></div>
-            <div class="character red" onclick="addPlayerRed()" id="red"></div>
-            <div class="character yellow" onclick="addPlayerYellow()" id="yellow"></div>
-        </div>
+    <div class="pantalla">
 
-        <div class="choosen-characters">
-            <h3>Personajes elegidos</h3>
-            <div class="display-characters" id="displayCharacters"></div>
+        <div class="recuadro-transparente-inicio" id="inicio">
 
-            <!-- Aquí intento agregar los personajes seleccionados -->
+            <div class="opciones-frutas" id="opciones-frutas">
+                <div class="texto-subtitulo">Escoge dos frutas</div>
+                <div class="opciones">
+                    <div class="fruta manzana hover-effect" onclick="addManzana()" id="manzana"></div>
+                    <div class="fruta pera hover-effect" onclick="addPera()" id="pera"></div>
+                    <div class="fruta fresa hover-effect" onclick="addFresa()" id="fresa"></div>
+                    <div class="fruta platano hover-effect" onclick="addPlatano()" id="platano"></div>
+                </div>
 
-        </div>
 
-        <div class="ps">
-            <div class="ps-player">
-                <div class="ps" id="ps-1"></div>
             </div>
 
-            <div class="ps-player">
-                <div class="ps" id="ps-2"></div>
+            <div>
+                <div class="selecciones">
+                    <div class="texto-subtitulo">Frutas elegidas</div>
+                    <div class="frutas-seleccionadas" id="displayCharacters"></div>
+                </div>
+
+            </div>
+            <div class="boton-inicio">
+                <button onclick="start()">START!</button>
+            </div>
+        </div>
+
+        <div class="recuadro-transparente-lucha" id="lucha">
+
+            <div class="barras-salud">
+                <div class="barra-salud-1"></div>
+                <div class="barra-salud-2"></div>
+
+            </div>
+
+            <div class="frutas-luchando" id="luchadores">
+                <!-- fruta-1 -->
+                <!-- fruta-2 -->
+            </div>
+
+            <div class="botones-ataque">
+                <button class="boton-color" onclick="atacarPlayer2()" id="jugador1">Atacar</button>
+                <button class="boton-color" onclick="atacarPlayer1()" id="jugador1">Atacar</button>
             </div>
 
         </div>
-
 
 
     </div>
 
-    <div class="fighting">
-
-        <div class="controles">
-            <button class="boton-player1" onclick="atacarPlayer1()">Jug1-atacar</button>
-            <button class="boton-player2" onclick="atacarPlayer2()">Jug2-atacar</button>
+    <!-- <div class="ps">
+        <div class="ps-player">
+            <div class="ps" id="ps-1"></div>
         </div>
 
+        <div class="ps-player">
+            <div class="ps" id="ps-2"></div>
+        </div>
 
-
-    </div>
+    </div> -->
 
 
     <script src="./js/main.js"></script>
