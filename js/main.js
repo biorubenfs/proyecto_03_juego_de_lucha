@@ -145,7 +145,7 @@ let atacarPlayer2 = () => {
     document.getElementById("ps-1").style.width = ps;
 
     // Verificando si existe un ganador después de cada ataque
-    checkWinner(players[0], players[1]);
+    checkWinner(frutas[0], frutas[1]);
 }
 
 const displayFrutasLucha = () => {
@@ -161,7 +161,7 @@ const start = () => {
         displayFrutasLucha();
     }
     else {
-        alert("Tienes que elegir dos jugadores");
+        alert("Tienes que escoger 2 frutas");
     }
 }
 
