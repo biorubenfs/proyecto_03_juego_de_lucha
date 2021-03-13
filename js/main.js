@@ -1,3 +1,12 @@
+// Audios
+let audioTitulo = new Audio("./sounds/title_screen.mp3");
+let audioSelect = new Audio("./sounds/player_select.mp3");
+let audioVs = new Audio("./sounds/vs_screen.mp3");
+let audioBatalla = new Audio("./sounds/fight.mp3");
+let audioFinal = new Audio("./sounds/final_screen.mp3");
+
+audioTitulo.play();
+
 const jugadores = 2;
 
 // Personajes de frutas: la clase padre
@@ -48,6 +57,9 @@ Fruta.id = 0;
 let comenzar = () => {
     document.getElementById("comenzar").style.display = "none";
     document.getElementById("inicio").style.display = "flex";
+    audioTitulo.pause();
+    audioTitulo.currentTime = 0;
+    audioSelect.play();
 }
 
 // Array en el que se almacenarán las frutas seleccionadas (hasta un máximo de 2).
@@ -76,6 +88,9 @@ const displayFrutaInicio = (fruta) => {
 const checkArray = () => {
     if (frutas.length == jugadores) {
         document.getElementById("opciones-frutas").style.display = "none";
+        audioSelect.pause();
+        audioSelect.currentTime = 0;
+        audioVs.play();
         return true;
     }
     else false;
@@ -142,6 +157,10 @@ let checkWinner = (fruta1, fruta2) => {
         textoFelicitaciones.setAttribute("id", "texto");
         document.getElementById("fruta-ganadora").appendChild(textoFelicitaciones);
         console.log("Checkwinner-fin");
+        audioBatalla.pause();
+        audioBatalla.currentTime = 0;
+        audioFinal.play();
+
     }
     else if (fruta2.puntosSalud <= 0) {
         console.log("Checkwinner-inicio");
@@ -158,6 +177,9 @@ let checkWinner = (fruta1, fruta2) => {
         textoFelicitaciones.setAttribute("id", "texto");
         document.getElementById("fruta-ganadora").appendChild(textoFelicitaciones);
         console.log("Checkwinner-fin");
+        audioBatalla.pause();
+        audioBatalla.currentTime = 0;
+        audioFinal.play();
     }
 };
 
@@ -202,6 +224,9 @@ const start = () => {
         document.getElementById("inicio").style.display = "none";
         document.getElementById("lucha").style.display = "flex";
         displayFrutasLucha();
+        audioVs.pause();
+        audioVs.currentTime = 0;
+        audioBatalla.play();
     }
     else {
         alert("Tienes que escoger 2 frutas");
@@ -250,6 +275,10 @@ let reiniciar = () => {
     document.getElementById("texto").remove();
 
     frutas = [];
+
+    audioFinal.pause();
+    audioFinal.currentTime = 0;
+    audioSelect.play();
 }
 
 
