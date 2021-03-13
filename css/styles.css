@@ -1,16 +1,28 @@
+:root {
+  --gameFont: "Press Start 2P";
+  --rockFont: "Rock Salt";
+}
+
+/* Fuentes de google */
+
+/* font-family: 'Press Start 2P', cursive; */
+/* font-family: 'Rock Salt', cursive; */
+
 body {
-  background-color: grey;
-  /* background-image: url(../img/fruits_bg.jpg); */
-  /* background-position: center; */
+  /* background-color: grey; */
+  background-image: url(../img/fruits_bg.jpg);
+  background-position: center;
   /* background-position: cover; */
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
+  font-family: var(--gameFont);
 }
 
 .titulo {
-  color: black;
+  color: white;
   font-size: 4em;
-  text-align: center;
+  font-family: var(--rockFont);
   opacity: 0.9;
+  text-align: center;
 }
 
 /* Seleccion fruta */
@@ -30,13 +42,14 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 1em;
+  /* opacity: 0.4; */
 }
 
 /* Las frutas */
 
 .texto-subtitulo {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2em;
+  font-family: var(--gameFont);
+  font-size: 1.6em;
   text-align: center;
   margin: 1em 0em;
 }
@@ -71,6 +84,8 @@ body {
 /* Cargando las imagenes de las frutas */
 .manzana {
   background-image: url(../img/apple_icon.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .pera {
@@ -98,6 +113,7 @@ body {
   justify-content: center;
   align-items: flex-end;
   margin-top: 1em;
+  font-family: var(--gameFont);
 }
 
 /* Pantalla de lucha*/
@@ -177,4 +193,23 @@ body {
   justify-content: space-around;
   width: 90%;
   margin-top: 2em;
+}
+
+.recuadro-transparente-ganador {
+  height: 70%;
+  width: 70%;
+  display: none;
+  flex-direction: column;
+  background-color: seashell;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1em;
+  /* width: 90%;; */
+}
+
+.ganador {
+  display: flex;
+  height: 50%;
+  width: 50%;
+  background-color: thistle;
 }
