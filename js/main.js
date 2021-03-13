@@ -58,7 +58,9 @@ const displayFrutaInicio = (fruta) => {
     htmlElement.appendChild(document.getElementById(fruta.nombre));
     if (frutas.length == 1) {
         let htmlElement = document.getElementById("displayCharacters");
+        // document.getElementById("vs").style.display = "flex";
         let vs = document.createElement("h2");
+        vs.setAttribute("id", "vs");
         vs.innerText = "VS";
         htmlElement.appendChild(vs);
     }
@@ -116,38 +118,42 @@ let agregarFrutaAcciones = (fruta) => {
 
 
 // Las frutas seleccionadas están ahora en un array
-//fight(players[0], players[1]);
 
-// Función que verifica si alguno de los jugadores tiene PS <= 0;
+// Función que verifica si alguno de los jugadores tiene PS <= 0; y hace pasar a la pantalla de ganador
 let checkWinner = (fruta1, fruta2) => {
     if (fruta1.puntosSalud <= 0) {
+        console.log("Checkwinner-inicio");
         document.getElementById("lucha").style.display = "none";
-        alert(`${fruta2.nombre} WINS!`);
+        // alert(`${fruta2.nombre} WINS!`);
         document.getElementById("ganador").style.display = "flex";
         let ganador = document.getElementById(fruta2.nombre);
+        document.getElementById("fruta-ganadora").style.display = "flex";
         document.getElementById("fruta-ganadora").appendChild(ganador);
+        ganador.classList.add("formato-ganador");
+        let textoFelicitaciones = document.createElement("h4");
+        textoFelicitaciones.innerText = `¡Enhorabuena, has exprimido zumo de ${fruta1.nombre}!`;
+        textoFelicitaciones.style.textAlign = "center";
+        textoFelicitaciones.setAttribute("id", "texto");
+        document.getElementById("fruta-ganadora").appendChild(textoFelicitaciones);
+        console.log("Checkwinner-fin");
     }
     else if (fruta2.puntosSalud <= 0) {
+        console.log("Checkwinner-inicio");
         document.getElementById("lucha").style.display = "none";
-        alert(`${fruta1.nombre} WINS!`);
+        // alert(`${fruta1.nombre} WINS!`);
+        document.getElementById("fruta-ganadora").style.display = "flex";
         document.getElementById("ganador").style.display = "flex";
         let ganador = document.getElementById(fruta1.nombre);
         document.getElementById("fruta-ganadora").appendChild(ganador);
-
+        ganador.classList.add("formato-ganador");
+        let textoFelicitaciones = document.createElement("h4");
+        textoFelicitaciones.innerText = `¡Enhorabuena, has exprimido zumo de ${fruta2.nombre}!`;
+        textoFelicitaciones.style.textAlign = "center";
+        textoFelicitaciones.setAttribute("id", "texto");
+        document.getElementById("fruta-ganadora").appendChild(textoFelicitaciones);
+        console.log("Checkwinner-fin");
     }
 };
-
-
-// Metodo atacar General
-// let atacar = (jugadorAgresor, jugadorAgredido, etiquetaHtml) => {
-//     jugadorAgredido.puntosSalud -= jugadorAgresor.puntosAtaque;
-//     let ps = `${jugadorAgredido.puntosSalud}%`;
-//     if (parseInt(ps) < 0) {
-//         document.getElementById(etiquetaHtml).style.width = "0%";
-//     } else {
-//         document.getElementById(etiquetaHtml).style.width = ps;
-//     }
-// }
 
 let atacarPlayer1 = () => {
     randomNumber = Math.floor(Math.random() * (5 - 1));
@@ -179,16 +185,6 @@ let atacarPlayer2 = () => {
     checkWinner(frutas[0], frutas[1]);
 }
 
-let atacar = (jugadorAgresor, jugadorAgredido, etiquetaHtml) => {
-    jugadorAgredido.puntosSalud -= jugadorAgresor.puntosAtaque;
-    let ps = `${jugadorAgredido.puntosSalud}%`;
-    if (parseInt(ps) < 0) {
-        document.getElementById(etiquetaHtml).style.width = "0%";
-    } else {
-        document.getElementById(etiquetaHtml).style.width = ps;
-    }
-}
-
 const displayFrutasLucha = () => {
     let htmlElement = document.getElementById("luchadores");
     htmlElement.appendChild(document.getElementById(frutas[0].nombre));
@@ -204,6 +200,50 @@ const start = () => {
     else {
         alert("Tienes que escoger 2 frutas");
     }
+}
+
+let reiniciar = () => {
+    document.getElementById("inicio").style.display = "flex";
+    document.getElementById("lucha").style.display = "none";
+    document.getElementById("ganador").style.display = "none";
+
+    document.getElementById("inicio").style.display = "flex;"
+    document.getElementById("opciones-frutas").style.display = "flex";
+    let opciones = document.getElementById("opciones");
+
+    // Traemos las frutas escogidas para reiniciar el juego
+    let fruta0 = document.getElementById(frutas[0].nombre);
+    let fruta1 = document.getElementById(frutas[1].nombre);
+
+    // Hay que añadir las dos frutas que se han seleccionado.
+    opciones.appendChild(fruta0);
+    opciones.appendChild(fruta1);
+
+    // Vuelven al tamaño normal
+    fruta0.classList.remove("formato-ganador");
+    fruta1.classList.remove("formato-ganador");
+
+    // Volvemos a aplicar hover para la pantalla de seleccion de jugadores
+    fruta0.classList.add("hover-effect");
+    fruta1.classList.add("hover-effect");
+
+    // Agrega de nuevo el atributo para hacer seleccionable los jugadores que acaban de jugar
+    document.getElementById("manzana").setAttribute("onclick", "addManzana()");
+    document.getElementById("pera").setAttribute("onclick", "addPera()");
+    document.getElementById("fresa").setAttribute("onclick", "addFresa()");
+    document.getElementById("platano").setAttribute("onclick", "addPlatano()");
+
+    document.getElementById("vs").remove();
+
+    // Restaurar ps de las barras de salud.
+    document.getElementById("ps-1").style.width = "100%";
+    document.getElementById("ps-2").style.width = "100%";
+
+    document.getElementById("fruta-ganadora").style.display = "none";
+
+    document.getElementById("texto").remove();
+
+    frutas = [];
 }
 
 

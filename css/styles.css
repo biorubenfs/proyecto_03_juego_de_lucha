@@ -38,6 +38,8 @@ body {
 .recuadro-transparente-inicio {
   height: 70%;
   width: 70%;
+  display: flex;
+  flex-direction: column;
   background-color: seashell;
   align-items: center;
   justify-content: center;
@@ -84,8 +86,6 @@ body {
 /* Cargando las imagenes de las frutas */
 .manzana {
   background-image: url(../img/apple_icon.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .pera {
@@ -105,6 +105,10 @@ body {
   flex-direction: row;
   justify-content: center;
 }
+
+/* #vs {
+  display: none;
+} */
 
 .boton-inicio {
   /* height: auto; */
@@ -209,7 +213,16 @@ body {
 
 .ganador {
   display: flex;
-  height: 50%;
-  width: 50%;
-  background-color: thistle;
+  height: 70%;
+  width: 70%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formato-ganador {
+  height: 15em;
+  width: 15em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

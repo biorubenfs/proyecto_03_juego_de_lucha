@@ -24,7 +24,7 @@
 
             <div class="opciones-frutas" id="opciones-frutas">
                 <div class="texto-subtitulo">Escoge dos frutas</div>
-                <div class="opciones">
+                <div class="opciones" id="opciones">
                     <div class="fruta manzana hover-effect" onclick="addManzana()" id="manzana"></div>
                     <div class="fruta pera hover-effect" onclick="addPera()" id="pera"></div>
                     <div class="fruta fresa hover-effect" onclick="addFresa()" id="fresa"></div>
@@ -35,7 +35,9 @@
             <div>
                 <div class="selecciones">
                     <div class="texto-subtitulo">Frutas elegidas</div>
-                    <div class="frutas-seleccionadas" id="displayCharacters"></div>
+                    <div class="frutas-seleccionadas" id="displayCharacters">
+                        <!-- <h2 id="vs">VS</h2> -->
+                    </div>
                 </div>
             </div>
 
@@ -74,11 +76,13 @@
 
         <div class="recuadro-transparente-ganador" id="ganador">
 
+            <h2>Ganador</h2>
             <!-- Ganadores -->
             <div class="ganador" id="fruta-ganadora">
 
             </div>
 
+            <button id="reset" onclick="reiniciar()">Reiniciar</button>
         </div>
     </div>
 
