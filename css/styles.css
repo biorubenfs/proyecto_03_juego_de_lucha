@@ -17,6 +17,29 @@ body {
   font-family: var(--gameFont);
 }
 
+.apertura {
+  display: flex;
+  justify-content: center;
+}
+
+#comenzar {
+  height: 4em;
+  width: 20em;
+  border-radius: 0.5em;
+  background-color: brown;
+  color: white;
+  text-align: center;
+  border: 0.6em solid black;
+}
+
+#comenzar:hover {
+  cursor: pointer;
+  background-color: tomato;
+  text-align: center;
+  justify-content: center;
+  border: 0.4em solid grey;
+}
+
 .titulo {
   color: white;
   font-size: 4em;
@@ -38,7 +61,7 @@ body {
 .recuadro-transparente-inicio {
   height: 70%;
   width: 70%;
-  display: flex;
+  display: none; /* */
   flex-direction: column;
   background-color: seashell;
   align-items: center;

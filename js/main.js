@@ -44,6 +44,12 @@ class Pera extends Fruta {
 
 Fruta.id = 0;
 
+// Comenzar el juego
+let comenzar = () => {
+    document.getElementById("comenzar").style.display = "none";
+    document.getElementById("inicio").style.display = "flex";
+}
+
 // Array en el que se almacenarán las frutas seleccionadas (hasta un máximo de 2).
 let frutas = [];
 
