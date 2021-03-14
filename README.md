@@ -12,6 +12,10 @@ Para dotar de ambiente al juego, se ha incluido banda sonora del clásico _Stree
 
 ## Screenshots
 
+![select_screen](https://user-images.githubusercontent.com/65553496/111064707-cee51a00-84b5-11eb-9c24-4839caa38823.png)
+
+![figth_screen](https://user-images.githubusercontent.com/65553496/111064706-cdb3ed00-84b5-11eb-9760-270180fe87ab.png)
+
 ## Herramientas
 
 - HTML.
