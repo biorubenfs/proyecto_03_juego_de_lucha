@@ -17,10 +17,11 @@
 <body>
 
     <h1 class="titulo">FruitFigther</h1>
-    <audio src="./sounds/title_screen.mp3" id="sonido-titulo"></audio>
 
+    <!-- Todo el contenido que va variando se dispone dentro de la clase "pantalla" -->
     <div class="pantalla">
 
+        <!-- Pantalla que ve el usuario al iniciar el juego -->
         <div class="apertura" id="apertura">
 
             <div id="comenzar" onclick="comenzar()">
@@ -29,8 +30,10 @@
 
         </div>
 
+        <!-- Pantalla de seleccion de personajes -->
         <div class="recuadro-transparente-inicio" id="inicio">
 
+            <!-- Nos muestra las frutas, precargadas -->
             <div class="opciones-frutas" id="opciones-frutas">
                 <div class="texto-subtitulo">Escoge dos frutas</div>
                 <div class="opciones" id="opciones">
@@ -41,27 +44,32 @@
                 </div>
             </div>
 
+            <!-- Muestra las frutas seleccionadas por los usuarios -->
             <div>
                 <div class="selecciones">
                     <div class="texto-subtitulo">Frutas elegidas</div>
                     <div class="frutas-seleccionadas" id="displayCharacters">
-                        <!-- <h2 id="vs">VS</h2> -->
+
                     </div>
                 </div>
             </div>
 
+            <!-- Botón de inicio de partida -->
             <div class="boton-inicio">
                 <button onclick="start()">START!</button>
             </div>
         </div>
 
+        <!-- Pantalla en la que luchan las dos frutas -->
         <div class="recuadro-transparente-lucha" id="lucha">
 
+            <!-- Muestra el texto PS -->
             <div class="puntos-salud-texto">
                 <div id="puntos-salud-1">PS</div>
                 <div id="puntos-salud-1">PS</div>
             </div>
 
+            <!-- Muestra las barras de salud -->
             <div class="barras-salud">
                 <div class="barra-salud-1">
                     <div id="ps-1"></div>
@@ -71,18 +79,21 @@
                 </div>
             </div>
 
+            <!-- Se agregan las frutas seleccionadas -->
             <div class="frutas-luchando" id="luchadores">
                 <!-- fruta-1 -->
                 <!-- fruta-2 -->
             </div>
 
+            <!-- Los botones para atacar al contrario -->
             <div class="botones-ataque">
-                <button class="boton-color" onclick="atacarPlayer2()" id="jugador1">Atacar</button>
-                <button class="boton-color" onclick="atacarPlayer1()" id="jugador1">Atacar</button>
+                <button class="boton-color" onclick="atacarPlayer1()">Atacar</button>
+                <button class="boton-color" onclick="atacarPlayer2()">Atacar</button>
             </div>
 
         </div>
 
+        <!-- Pantalla del ganador -->
         <div class="recuadro-transparente-ganador" id="ganador">
 
             <h2>Ganador</h2>
@@ -91,6 +102,7 @@
 
             </div>
 
+            <!-- Botón de reinicio de la partida -->
             <button id="reset" onclick="reiniciar()">Reiniciar</button>
         </div>
     </div>

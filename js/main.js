@@ -1,10 +1,11 @@
-// Audios
+// La banda sonora
 let audioTitulo = new Audio("./sounds/title_screen.mp3");
 let audioSelect = new Audio("./sounds/player_select.mp3");
 let audioVs = new Audio("./sounds/vs_screen.mp3");
 let audioBatalla = new Audio("./sounds/fight.mp3");
 let audioFinal = new Audio("./sounds/final_screen.mp3");
 
+// Reproduccion automatica del audio en la pantalla de inicio
 audioTitulo.play();
 
 const jugadores = 2;
@@ -18,7 +19,7 @@ class Fruta {
     }
 }
 
-// Los objetos creados son tal cual están definidas
+// Las clases que darán lugar a las frutas que luchan.
 class Manzana extends Fruta {
     constructor() {
         super();
@@ -53,7 +54,10 @@ class Pera extends Fruta {
 
 Fruta.id = 0;
 
-// Comenzar el juego
+// Array en el que se almacenarán las frutas seleccionadas (hasta un máximo de 2).
+let frutas = [];
+
+// Comenzar el juego. Lleva a la pantalla de seleccion de personajes. Detiene la musica de inicio y reproduce el audio de la pantalla de selección.
 let comenzar = () => {
     document.getElementById("comenzar").style.display = "none";
     document.getElementById("inicio").style.display = "flex";
@@ -62,21 +66,19 @@ let comenzar = () => {
     audioSelect.play();
 }
 
-// Array en el que se almacenarán las frutas seleccionadas (hasta un máximo de 2).
-let frutas = [];
-
-// Agrega una fruta al array de frutas
+// Función que agrega una fruta al array de frutas
 const addFruta = (arrayFrutas, fruta) => {
     arrayFrutas.push(fruta);
 }
 
-// Cambiar la fruta escogida a seleccionada
+// Cambiar la fruta escogida a seleccionada. Esto nos mueve el elemento html a otra parte y nos elimina la capacidad de volver a seleccionarla.
 const displayFrutaInicio = (fruta) => {
     let htmlElement = document.getElementById("displayCharacters");
     htmlElement.appendChild(document.getElementById(fruta.nombre));
+
+    // Si es el primer personaje que escogemos, nos añade el texto vs
     if (frutas.length == 1) {
         let htmlElement = document.getElementById("displayCharacters");
-        // document.getElementById("vs").style.display = "flex";
         let vs = document.createElement("h2");
         vs.setAttribute("id", "vs");
         vs.innerText = "VS";
@@ -84,7 +86,7 @@ const displayFrutaInicio = (fruta) => {
     }
 }
 
-// Comprobación del array
+// Función que verifica si hemos elegido el numero correcto de frutas. De lo contrario, no suelta un alert.
 const checkArray = () => {
     if (frutas.length == jugadores) {
         document.getElementById("opciones-frutas").style.display = "none";
@@ -95,9 +97,6 @@ const checkArray = () => {
     }
     else false;
 }
-
-// Array en el que se almacenarán los luchadores según se vayan creando
-let players = [];
 
 // Creación de las instancias de Fruta, lo que vienen siendo los jugadores.
 let addManzana = () => {
@@ -120,75 +119,72 @@ let addFresa = () => {
     agregarFrutaAcciones(fresa);
 }
 
+// Funcion que elimina
 let eliminarOnclick = (fruta) => {
     document.getElementById(fruta.nombre).removeAttribute("onclick");
-}
-
-let eliminarResaltado = (fruta) => {
-    document.getElementById(fruta.nombre).classList.remove("hover-effect");
+    document.getElementById(fruta.nombre).classList.remove("hover-effect"); /* */
 }
 
 // Realiza una serie de acciones cuando el jugador escoge personaje: crea una instancia, eliminar el personaje de los seleccionables y sus efectos, verificar si ya se han seleccionados los dos jugadores:
 let agregarFrutaAcciones = (fruta) => {
     addFruta(frutas, fruta);
     displayFrutaInicio(fruta);
-    eliminarResaltado(fruta);
     eliminarOnclick(fruta);
     checkArray();
 }
 
-
-// Las frutas seleccionadas están ahora en un array
-
-// Función que verifica si alguno de los jugadores tiene PS <= 0; y hace pasar a la pantalla de ganador
+// Función que verifica si alguno de los jugadores tiene PS <= 0; y hace pasar a la pantalla de ganador.
 let checkWinner = (fruta1, fruta2) => {
     if (fruta1.puntosSalud <= 0) {
-        console.log("Checkwinner-inicio");
-        document.getElementById("lucha").style.display = "none";
-        // alert(`${fruta2.nombre} WINS!`);
-        document.getElementById("ganador").style.display = "flex";
-        let ganador = document.getElementById(fruta2.nombre);
-        document.getElementById("fruta-ganadora").style.display = "flex";
-        document.getElementById("fruta-ganadora").appendChild(ganador);
-        ganador.classList.add("formato-ganador");
-        let textoFelicitaciones = document.createElement("h4");
-        textoFelicitaciones.innerText = `¡Enhorabuena, has exprimido zumo de ${fruta1.nombre}!`;
-        textoFelicitaciones.style.textAlign = "center";
-        textoFelicitaciones.setAttribute("id", "texto");
-        document.getElementById("fruta-ganadora").appendChild(textoFelicitaciones);
-        console.log("Checkwinner-fin");
-        audioBatalla.pause();
-        audioBatalla.currentTime = 0;
-        audioFinal.play();
+        mostrarPantallaGanador();
+
+        mostrarGanador(fruta2, fruta1);
+
+        audioGanador();
 
     }
     else if (fruta2.puntosSalud <= 0) {
-        console.log("Checkwinner-inicio");
-        document.getElementById("lucha").style.display = "none";
-        // alert(`${fruta1.nombre} WINS!`);
-        document.getElementById("fruta-ganadora").style.display = "flex";
-        document.getElementById("ganador").style.display = "flex";
-        let ganador = document.getElementById(fruta1.nombre);
-        document.getElementById("fruta-ganadora").appendChild(ganador);
-        ganador.classList.add("formato-ganador");
-        let textoFelicitaciones = document.createElement("h4");
-        textoFelicitaciones.innerText = `¡Enhorabuena, has exprimido zumo de ${fruta2.nombre}!`;
-        textoFelicitaciones.style.textAlign = "center";
-        textoFelicitaciones.setAttribute("id", "texto");
-        document.getElementById("fruta-ganadora").appendChild(textoFelicitaciones);
-        console.log("Checkwinner-fin");
-        audioBatalla.pause();
-        audioBatalla.currentTime = 0;
-        audioFinal.play();
+        mostrarPantallaGanador();
+
+        mostrarGanador(fruta1, fruta2);
+
+        audioGanador();
     }
 };
 
+// Nos muestra la fruta ganadora junto con el texto de victoria
+let mostrarGanador = (frutaGanadora, frutaPerdedora) => {
+    let ganador = document.getElementById(frutaGanadora.nombre);
+    document.getElementById("fruta-ganadora").appendChild(ganador);
+    ganador.classList.add("formato-ganador");
+    let textoFelicitaciones = document.createElement("h4");
+    textoFelicitaciones.innerText = `¡Enhorabuena, has exprimido zumo de ${frutaPerdedora.nombre}!`;
+    textoFelicitaciones.style.textAlign = "center";
+    textoFelicitaciones.setAttribute("id", "texto");
+    document.getElementById("fruta-ganadora").appendChild(textoFelicitaciones);
+}
+
+// Oculta y muestra elementos html necesarios para mostrar la pantalla del vencedor.
+let mostrarPantallaGanador = () => {
+    document.getElementById("lucha").style.display = "none";
+    document.getElementById("ganador").style.display = "flex";
+    document.getElementById("fruta-ganadora").style.display = "flex";
+}
+
+// Cambia el audio al pasar a la pantalla de vencedor
+let audioGanador = () => {
+    audioBatalla.pause();
+    audioBatalla.currentTime = 0;
+    audioFinal.play();
+}
+
+// Ataques de las frutas.
 let atacarPlayer1 = () => {
     randomNumber = Math.floor(Math.random() * (5 - 1));
     frutas[1].puntosSalud = frutas[1].puntosSalud - frutas[0].puntosAtaque[randomNumber];
-    // console.log(`${frutas[1].nombre} ps: ${frutas[1].puntosSalud}`);
     console.log(frutas[0].puntosAtaque[randomNumber]);
     let ps = `${frutas[1].puntosSalud}%`;
+
     if (parseInt(ps) < 0) {
         document.getElementById("ps-2").style.width = "0%";
     } else {
@@ -201,9 +197,9 @@ let atacarPlayer1 = () => {
 let atacarPlayer2 = () => {
     randomNumber = Math.floor(Math.random() * (5 - 1));
     frutas[0].puntosSalud = frutas[0].puntosSalud - frutas[1].puntosAtaque[randomNumber];
-    // console.log(`${frutas[0].nombre} ps: ${frutas[0].puntosSalud}`);
     console.log(frutas[1].puntosAtaque[randomNumber]);
     let ps = `${frutas[0].puntosSalud}%`;
+
     if (parseInt(ps) < 0) {
         document.getElementById("ps-1").style.width = "0%";
     } else {
@@ -219,8 +215,10 @@ const displayFrutasLucha = () => {
     htmlElement.appendChild(document.getElementById(frutas[1].nombre));
 }
 
+// Nos lleva a la pantalla de batalla
 const start = () => {
     if (checkArray()) {
+
         document.getElementById("inicio").style.display = "none";
         document.getElementById("lucha").style.display = "flex";
         displayFrutasLucha();
@@ -233,6 +231,7 @@ const start = () => {
     }
 }
 
+// Al invocar esta función nos lleva a la pantala de selección de personajes
 let reiniciar = () => {
     document.getElementById("inicio").style.display = "flex";
     document.getElementById("lucha").style.display = "none";

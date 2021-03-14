@@ -4,16 +4,12 @@
 }
 
 /* Fuentes de google */
-
 /* font-family: 'Press Start 2P', cursive; */
 /* font-family: 'Rock Salt', cursive; */
 
 body {
-  /* background-color: grey; */
   background-image: url(../img/fruits_bg.jpg);
   background-position: center;
-  /* background-position: cover; */
-  background-repeat: no-repeat;
   font-family: var(--gameFont);
 }
 
@@ -22,6 +18,7 @@ body {
   justify-content: center;
 }
 
+/* Boton de PLAY */
 #comenzar {
   height: 4em;
   width: 20em;
@@ -67,11 +64,9 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 1em;
-  /* opacity: 0.4; */
 }
 
 /* Las frutas */
-
 .texto-subtitulo {
   font-family: var(--gameFont);
   font-size: 1.6em;
@@ -99,12 +94,8 @@ body {
 .hover-effect:hover {
   border: 0.2em solid black;
   padding: 1.2em;
+  cursor: grab;
 }
-
-/* .fruta:hover {
-  border: 0.2em solid black;
-  padding: 1.2em;
-} */
 
 /* Cargando las imagenes de las frutas */
 .manzana {
@@ -129,12 +120,7 @@ body {
   justify-content: center;
 }
 
-/* #vs {
-  display: none;
-} */
-
 .boton-inicio {
-  /* height: auto; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -144,7 +130,6 @@ body {
 }
 
 /* Pantalla de lucha*/
-
 .recuadro-transparente-lucha {
   height: 70%;
   width: 70%;
@@ -154,11 +139,9 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 1em;
-  /* width: 90%;; */
 }
 
 /* Barras de salud */
-
 .puntos-salud-texto {
   width: 90%;
   display: flex;
@@ -200,13 +183,6 @@ body {
   background-color: yellow;
 }
 
-/* .barra-salud-2 {
-  height: 1em;
-  width: 10em;
-  background-color: yellow;
-  border: 1px solid black;
-} */
-
 .frutas-luchando {
   display: flex;
   flex-direction: row;
@@ -231,7 +207,6 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 1em;
-  /* width: 90%;; */
 }
 
 .ganador {
